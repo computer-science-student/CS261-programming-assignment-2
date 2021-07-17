@@ -107,6 +107,8 @@ int depth(struct BST* tree, int key){
 }
 
 /*
+// the first parameter of depth should be of this type:
+// struct BST*
 int depth(struct Node* root, int x){
     // TODO for khanhble
 	if (root == NULL)
