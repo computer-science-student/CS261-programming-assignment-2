@@ -8,13 +8,14 @@
 // Creates the BST. Returns a pointer to the BST.
 struct BST* createBST(){
     // Create the first node, root.
-    struct Node * root_prt = malloc(sizeof(struct Node*)); // free this malloc!
-    root_prt->left = NULL;
-    root_prt->right = NULL;
+    //struct Node * root_prt = malloc(sizeof(struct Node*)); // free this malloc!
+    //root_prt->left = NULL;
+    //root_prt->right = NULL;
 
     // Create the BST, tree.
     struct BST * tree = malloc(sizeof(struct BST*)); // free this malloc!
-    tree->root = root_prt;
+    tree->root = NULL;
+    //return 1;
     return tree;
 }
 
@@ -30,7 +31,7 @@ void insert(struct BST* tree, int key){
 
 
 int height(struct BST* tree){
-
+    return 123456789;
 }
 
 int depth(struct BST* tree, int key){
