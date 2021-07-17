@@ -29,11 +29,34 @@ struct BST* createBST(){
     return tree;
 }
 
-void inorderTraversal(struct BST* tree){
-    // root head, top, tree,
-
-
+/*
+void _inorder(struct Node* Node)
+{
+	if (Node != NULL)
+	{
+		_inorder(Node->left);
+		printf("%d ", Node->key);
+		_inorder(Node->right);
+	}
 }
+*/
+
+
+void inorderTraversal(struct BST* BST)
+{
+//	_inorder(BST->root);
+	struct Node* Node;
+	Node = (*BST).root;
+
+//	while (Node != NULL)
+//	{
+//		Node = (*Node).left;
+//	}
+
+	printf("%d ", (*Node).key);
+}
+
+
 
 /*
 // Old insertNode
