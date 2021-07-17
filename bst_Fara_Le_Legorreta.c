@@ -98,7 +98,7 @@ void insert(struct BST* BST, int key)
 
 int height(struct BST* tree){
     // TODO for computer-science-student
-    return 123456789;
+    return 123;
 }
 
 // Old depth started by Computer-Science-Student.
