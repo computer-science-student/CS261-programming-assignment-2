@@ -83,11 +83,10 @@ int depth(struct BST* tree, int key){
 
 }
 
-void _delete_1(){}
-
+// Commented out the various ways to delete
+/*void _delete_1(){}
 void _delete_2(){}
-
-void _delete_3(){}
+void _delete_3(){}*/
 
 void deleteBST(struct BST* tree){
     // free the other nodes
