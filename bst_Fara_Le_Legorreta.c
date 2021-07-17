@@ -34,9 +34,41 @@ void inorderTraversal(struct BST* tree){
 
 
 }
-//test editing. Yay!
-void insert(struct BST* tree, int key){
-    return NULL;
+
+/*
+// Old insertNode
+struct Node* _insertNode(struct Node* Node, int key)
+{
+	if (Node == NULL)
+		return _newNode(key);
+
+	if (key < Node->key)
+		Node->left = _insertNode(Node->left, key);
+	else if (key > Node->key)
+		Node->right = _insertNode(Node->right, key);
+
+	return Node;
+}
+*/
+
+void insert(struct BST* BST, int key)
+{
+	struct Node* Node;
+	Node = (*BST).root;
+
+	while (Node != NULL)
+	{
+		if (key < (*Node).key)
+			Node = (*Node).left;
+		else if (key > (*Node).key)
+			Node = (*Node).right;
+	}
+
+	Node = _newNode(key);
+
+	printf("%d ", (*Node).key);
+
+	return;
 }
 
 
