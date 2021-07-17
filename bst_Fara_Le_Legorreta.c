@@ -7,19 +7,6 @@ void _delete_1();
 void _delete_2();
 void _delete_3();
 
-// _newNode creates and returns a new node.
-// Used by insert function.
-struct Node* _newNode(int key)
-{
-	struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
-
-	temp->key = key;
-	temp->left = temp->right = NULL;
-
-	return temp;
-}
-
-
 // Creates the BST. Returns a pointer to the BST.
 struct BST* createBST(){
     // Create the BST, tree.
@@ -75,6 +62,18 @@ struct Node* _insertNode(struct Node* Node, int key)
 	return Node;
 }
 */
+
+// _newNode creates and returns a new node.
+// Used by insert function.
+struct Node* _newNode(int key)
+{
+	struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
+
+	temp->key = key;
+	temp->left = temp->right = NULL;
+
+	return temp;
+}
 
 void insert(struct BST* BST, int key)
 {
