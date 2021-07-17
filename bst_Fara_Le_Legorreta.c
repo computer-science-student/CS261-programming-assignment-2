@@ -24,7 +24,7 @@ void inorderTraversal(struct BST* tree){
 
 
 }
-
+//test editing
 void insert(struct BST* tree, int key){
     return NULL;
 }
