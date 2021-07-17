@@ -101,29 +101,26 @@ int height(struct BST* tree){
     return 123456789;
 }
 
+// Old depth started by Computer-Science-Student.
+//int depth(struct BST* tree, int key){}
 
-int depth(struct BST* tree, int key){
-    // TODO for khanhble
-}
 
-/*
 // the first parameter of depth should be of this type:
 // struct BST*
-int depth(struct Node* root, int x){
+int depth(struct BST* root, int x){
     // TODO for khanhble
 	if (root == NULL)
 		return -1;
 
 	int dist = -1;
 
-	if ((root->key == x)
+	/*if ((root->key == x)
 	    || (dist = depth(root->left, x)) >= 0
 	    || (dist = depth(root->right, x)) >=0)
-		return dist + 1;
+		return dist + 1;*/
 
 	return dist;
 }
-*/
 
 
 
