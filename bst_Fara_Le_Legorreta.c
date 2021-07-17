@@ -105,6 +105,24 @@ int depth(struct BST* tree, int key){
 
 
 }
+/*
+int depth(struct Node* root, int x){
+    // TODO for khanhble
+	if (root == NULL)
+		return -1;
+
+	int dist = -1;
+
+	if ((root->key == x)
+	    || (dist = depth(root->left, x)) >= 0
+	    || (dist = depth(root->right, x)) >=0)
+		return dist + 1;
+
+	return dist;
+}*/
+
+
+
 
 // Commented out the various ways to delete
 /*void _delete_1(){}
