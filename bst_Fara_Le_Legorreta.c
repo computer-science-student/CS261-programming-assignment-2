@@ -41,7 +41,9 @@ void _inorder(struct Node* Node)
 }
 */
 
+void inorderTraversal(struct BST* tree){}
 
+/*
 void inorderTraversal(struct BST* BST)
 {
 //	_inorder(BST->root);
@@ -55,7 +57,7 @@ void inorderTraversal(struct BST* BST)
 
 	printf("%d ", (*Node).key);
 }
-
+*/
 
 
 /*
@@ -102,8 +104,6 @@ int height(struct BST* tree){
 
 int depth(struct BST* tree, int key){
     // TODO for khanhble
-
-
 }
 /*
 int depth(struct Node* root, int x){
