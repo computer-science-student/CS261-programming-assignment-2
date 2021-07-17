@@ -101,9 +101,11 @@ int height(struct BST* tree){
     return 123456789;
 }
 
+
 int depth(struct BST* tree, int key){
     // TODO for khanhble
 }
+
 /*
 int depth(struct Node* root, int x){
     // TODO for khanhble
@@ -118,8 +120,8 @@ int depth(struct Node* root, int x){
 		return dist + 1;
 
 	return dist;
-}*/
-
+}
+*/
 
 
 
