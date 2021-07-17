@@ -3,20 +3,25 @@
 #include "bst.h"
 
 // Create function prototypes for the different cases for delete.
-void _delete_1(); //hi khanh
+void _delete_1();
 void _delete_2();
 void _delete_3();
 
-// Undefined reference to createBST() means that you have to create the function
-// for that here right?
+// _newNode creates and returns a new node.
+// Used by insert function.
+struct Node* _newNode(int key)
+{
+	struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
+
+	temp->key = key;
+	temp->left = temp->right = NULL;
+
+	return temp;
+}
+
 
 // Creates the BST. Returns a pointer to the BST.
 struct BST* createBST(){
-    // Create the first node, root.
-    //struct Node * root_prt = malloc(sizeof(struct Node*)); // free this malloc!
-    //root_prt->left = NULL;
-    //root_prt->right = NULL;
-
     // Create the BST, tree.
     struct BST * tree = malloc(sizeof(struct BST*)); // free this malloc!
     tree->root = NULL;
