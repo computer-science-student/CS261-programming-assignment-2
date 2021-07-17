@@ -3,7 +3,7 @@
 #include "bst.h"
 
 // Create function prototypes for the different cases for delete.
-void _delete_1(); \\hi khanh
+void _delete_1(); //hi khanh
 void _delete_2();
 void _delete_3();
 
