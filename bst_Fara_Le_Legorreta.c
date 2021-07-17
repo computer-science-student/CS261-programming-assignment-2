@@ -107,6 +107,7 @@ int height(struct BST* tree){
 
 // the first parameter of depth should be of this type:
 // struct BST*
+
 int depth(struct BST* root, int key){
     // TODO for khanhble
 	if (root == NULL)
@@ -114,10 +115,10 @@ int depth(struct BST* root, int key){
 
 	int dist = -1;
 
-	/*if ((root->key == x)
-	    || (dist = depth(root->left, x)) >= 0
-	    || (dist = depth(root->right, x)) >=0)
-		return dist + 1;*/
+	//if ((root->key == x)
+	  //  || (dist = depth(root->left, x)) >= 0
+	   // || (dist = depth(root->right, x)) >=0)
+		//return dist + 1;
 
 	return dist;
 }
