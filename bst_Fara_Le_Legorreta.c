@@ -41,9 +41,8 @@ void _inorder(struct Node* Node)
 }
 */
 
-void inorderTraversal(struct BST* tree){}
+//void inorderTraversal(struct BST* tree){}
 
-/*
 void inorderTraversal(struct BST* BST)
 {
 //	_inorder(BST->root);
@@ -55,9 +54,11 @@ void inorderTraversal(struct BST* BST)
 //		Node = (*Node).left;
 //	}
 
-	printf("%d ", (*Node).key);
+    // Computer-science-student commented out the following
+    // printf statement to ensure that inorderTraversal compiles
+	//printf("%d ", (*Node).key);
 }
-*/
+
 
 
 /*
