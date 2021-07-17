@@ -2,6 +2,11 @@
 #include <stdlib.h>
 #include "bst.h"
 
+// Create function prototypes for the different cases for delete.
+void _delete_1();
+void _delete_2();
+void _delete_3();
+
 // Undefined reference to createBST() means that you have to create the function
 // for that here right?
 
@@ -39,6 +44,17 @@ int depth(struct BST* tree, int key){
 
 }
 
+void _delete_1(){
+
+}
+
+void _delete_2(){
+
+}
+
+void _delete_3(){
+
+}
 
 void deleteBST(struct BST* tree){
     // free the other nodes
