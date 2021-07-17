@@ -73,25 +73,21 @@ void insert(struct BST* BST, int key)
 
 
 int height(struct BST* tree){
+    // TODO for computer-science-student
     return 123456789;
 }
 
 int depth(struct BST* tree, int key){
+    // TODO for khanhble
 
 
 }
 
-void _delete_1(){
+void _delete_1(){}
 
-}
+void _delete_2(){}
 
-void _delete_2(){
-
-}
-
-void _delete_3(){
-
-}
+void _delete_3(){}
 
 void deleteBST(struct BST* tree){
     // free the other nodes
