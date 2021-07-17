@@ -41,7 +41,6 @@ void _inorder(struct Node* Node)
 }
 */
 
-//void inorderTraversal(struct BST* tree){}
 
 void inorderTraversal(struct BST* BST)
 {
