@@ -41,6 +41,8 @@ int depth(struct BST* tree, int key){
 
 
 void deleteBST(struct BST* tree){
+    // free the other nodes
+    free(tree);
 
 
 }
