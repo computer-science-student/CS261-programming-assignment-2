@@ -83,6 +83,11 @@ void insert(struct BST* BST, int key)
 	struct Node* Node;
 	Node = (*BST).root;
 
+	if (Node == NULL){
+        // node is root
+        struct Node* rootNode = _newNode(key);
+	}
+
     struct Node* parent = NULL; // prt for parent
 
 	// When node is null, while ends.
@@ -99,7 +104,7 @@ void insert(struct BST* BST, int key)
 
 	Node = _newNode(key);
 
-	assert(parent);
+	assert(parent); // This failed
 	// This is giving seg fault errors.
 
     if(key < (*parent).key)
