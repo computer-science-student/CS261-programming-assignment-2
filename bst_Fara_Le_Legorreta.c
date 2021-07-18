@@ -86,11 +86,11 @@ void insert(struct BST* bst, int key)
 
 	if (Node == NULL){
         // node is root so create root!
-        bst->root = (struct Node*)malloc(sizeof(struct Node));
-        Node = _newNode(key);
-        printf("%d\n", (*Node).key);
-        bst->root = Node; // this is what is causing seg faults
-        printf("%d ", (*Node).key);
+        bst->root = (struct Node *)malloc(sizeof(struct Node *));
+        bst->root = _newNode(key);
+        printf("%d\n", (*(bst->root).key);
+        //bst->root = Node; // this is what is causing seg faults
+        //printf("%d ", (*Node).key);
         return;
 	}
 
