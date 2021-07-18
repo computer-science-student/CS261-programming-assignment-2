@@ -79,15 +79,16 @@ struct Node* _newNode(int key)
 	return temp;
 }
 
-void insert(struct BST* BST, int key)
+void insert(struct BST* bst, int key)
 {
 	struct Node* Node;
-	Node = (*BST).root;
+	Node = (*bst).root;
 
 	if (Node == NULL){
         // node is root so create root!
         Node = _newNode(key);
-        BST -> root = Node;
+        printf("%d\n", (*Node).key);
+        bst->root = Node; // this is what is causing seg faults
         printf("%d ", (*Node).key);
         return;
 	}
@@ -178,3 +179,4 @@ void deleteBST(struct BST* tree){
 
 
 }
+
