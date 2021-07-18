@@ -8,13 +8,16 @@ void _delete_1();
 void _delete_2();
 void _delete_3();
 
+// make tree root global
+struct BST * treeRoot;
+
 // Creates the BST. Returns a pointer to the BST.
 struct BST* createBST(){
     // Create the BST, tree.
-    struct BST * tree = malloc(sizeof(struct BST*)); // free this malloc!
-    tree->root = NULL;
+    treeRoot = malloc(sizeof(struct BST*)); // free this malloc!
+    treeRoot->root = NULL;
     //return 1;
-    return tree;
+    return treeRoot;
 }
 
 /*
@@ -94,11 +97,11 @@ void insert(struct BST* BST, int key)
 
 	// When node is null, while ends.
 	while (Node != NULL) { // ensures that the inserted node is a leaf
-		if (key < (*Node).key){ // goes to the
+		if (key < (*Node).key){ // goes to the left
             parent = Node;
             Node = (*Node).left;
 		}
-		else if (key > (*Node).key){
+		else if (key > (*Node).key){ // goes to the right
             parent = Node;
 		    Node = (*Node).right;
 		}
@@ -127,7 +130,25 @@ void insert(struct BST* BST, int key)
 int height(struct BST* node){
     // Returns the height of a certain node in the tree
     // by counting the amount of times one goes left/right
-    return 123;
+    int i = 0;
+    int key = (*node).key; // gets the key
+    // need the root node here
+
+
+	// When node is null, while ends. Traverse the whole tree
+	// and increment i every time you go left or right
+	while (Node != NULL) { // ensures that the inserted node is a leaf
+		if (key < (*Node).key){ // goes to the left
+            Node = (*Node).left;
+		}
+		else if (key > (*Node).key){ // goes to the right
+		    Node = (*Node).right;
+		}
+		++i;
+	}
+
+
+    return i;
 }
 
 // Old depth started by Computer-Science-Student.
