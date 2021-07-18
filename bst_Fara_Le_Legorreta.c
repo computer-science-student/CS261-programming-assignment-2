@@ -40,7 +40,7 @@ void inorderTraversal(struct BST* BST)
 	struct Node* current;
 	struct Node* parent;
 	
-	current = BST->root
+	current = BST->root;
 	// Base case. If the BST is empty, 
 	// there is nothing to print. 
 	if (current == NULL)
