@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "bst.h"
+#include <assert.h>
 
 // Create function prototypes for the different cases for delete.
 void _delete_1();
