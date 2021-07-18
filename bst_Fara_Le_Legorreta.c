@@ -32,42 +32,42 @@ void _inorder(struct Node* Node)
 
 // A function that traverses a BST in order
 // and prints each key of each node as it is
-// traversed. 
+// traversed.
 void inorderTraversal(struct BST* BST)
 {
 //	_inorder(BST->root);
 
 	struct Node* current;
 	struct Node* parent;
-	
+
 	current = BST->root;
-	// Base case. If the BST is empty, 
-	// there is nothing to print. 
+	// Base case. If the BST is empty,
+	// there is nothing to print.
 	if (current == NULL)
 		return;
-	
+
 	// While the current node is not empty,
-	// traverse left as far as possible, print  
+	// traverse left as far as possible, print
 	// print that node, and move right.
 	while (current != NULL) {
 		if (current->left == NULL) {
 			printf("%d ", current->key);
 			current = current->right;
 		}
-		
-		
+
+
 		else {
 			parent = current->left;
-			while (parent->right != NULL 
+			while (parent->right != NULL
 			       && parent->right != current)
 				parent = parent->right;
-			
+
 				if (parent->right == NULL) {
 					parent->right = current;
 					current = current->left;
 				}
-			
-				else {	
+
+				else {
 					parent->right = NULL;
 					printf("%d ", current->key);
 					current = current->right;
@@ -75,7 +75,7 @@ void inorderTraversal(struct BST* BST)
 		}
 	}
 }
-	
+
 
 /*
 // Old insertNode
@@ -117,19 +117,19 @@ void insert(struct BST* BST, int key)
 {
 	struct Node* current;
 	struct Node* parent;
-	
+
 	current = BST->root;
-	
-	// Base case. If the tree is empty, 
+
+	// Base case. If the tree is empty,
 	// create a node to store as root.
 	if (current == NULL) {
 		BST->root = _newNode(key);
 		return;
 	}
-	
+
 	// Find the appropriate leaf onto which
-	// a new node will be appended. The 
-	// appropriate leaf is found when 
+	// a new node will be appended. The
+	// appropriate leaf is found when
 	// current == NULL. The leaf is stored
 	// as 'parent'.
 	while (current != NULL) {
@@ -142,7 +142,7 @@ void insert(struct BST* BST, int key)
 			current = current->right;
 		}
 	}
-	
+
 	// The new node is created as a new left
 	// or right node under parent.
 	if (key < parent->key) {
@@ -155,10 +155,10 @@ void insert(struct BST* BST, int key)
 	}
 	return;
 }
-	
-	
-	
-	
+
+
+
+
 /* I don't think we need any of the following code anymore! -Tyler
 
 	struct Node* Node;
@@ -203,7 +203,7 @@ void insert(struct BST* BST, int key)
 	return;
 }
 
-End of block to be deleted. */ 
+End of block to be deleted. */
 
 
 int max(int x, int y)
