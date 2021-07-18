@@ -85,7 +85,7 @@ void insert(struct BST* BST, int key)
 
 	if (Node == NULL){
         // node is root
-        struct Node* rootNode = _newNode(key);
+        Node = _newNode(key);
 	}
 
     struct Node* parent = NULL; // prt for parent
