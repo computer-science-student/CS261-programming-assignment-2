@@ -80,15 +80,23 @@ void insert(struct BST* BST, int key)
 	struct Node* Node;
 	Node = (*BST).root;
 
-	while (Node != NULL)
-	{
-		if (key < (*Node).key)
-			Node = (*Node).left;
-		else if (key > (*Node).key)
-			Node = (*Node).right;
+    struct Node* parent = NULL; // prt for parent
+
+	// When node is null, while ends.
+	while (Node != NULL) { // ensures that the inserted node is a leaf
+		if (key < (*Node).key){ // goes to the
+            parent = Node;
+            Node = (*Node).left;
+		}
+		else if (key > (*Node).key){
+            parent = Node;
+		    Node = (*Node).right;
+		}
 	}
 
 	Node = _newNode(key);
+
+	// not inserting the new node anywhere just printing.
 
 	printf("%d ", (*Node).key);
 
@@ -96,8 +104,9 @@ void insert(struct BST* BST, int key)
 }
 
 
-int height(struct BST* tree){
-    // TODO for computer-science-student
+int height(struct BST* node){
+    // Returns the height of a certain node in the tree
+    // by counting the amount of times one goes left/right
     return 123;
 }
 
