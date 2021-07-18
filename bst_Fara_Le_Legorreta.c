@@ -84,8 +84,10 @@ void insert(struct BST* BST, int key)
 	Node = (*BST).root;
 
 	if (Node == NULL){
-        // node is root
+        // node is root so create root!
         Node = _newNode(key);
+        printf("%d ", (*Node).key);
+        return;
 	}
 
     struct Node* parent = NULL; // prt for parent
