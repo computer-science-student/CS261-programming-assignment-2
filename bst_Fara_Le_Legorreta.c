@@ -133,15 +133,18 @@ int max(int x, int y)
     else
         return x;
 }
-int height(struct BST* node){
+int height(struct BST* bst){
     // Returns the height of the tree
     // by counting the amount of times one goes left/right
     // and gets the max.
-    int height;
-    if (node == NULL)
+	struct Node* Node;
+	Node = (*bst).root;
+
+    int heightCount;
+    if (Node == NULL)
         return 0;
-    height = max(height((*node).left), height(*node).right)) + 1;
-    return height;
+    heightCount = max( height( (*Node).left), height( (*Node).right) )+ 1;
+    return heightCount;
 }
 
 int depth(struct BST* root, int key){
