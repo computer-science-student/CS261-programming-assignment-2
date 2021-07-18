@@ -96,6 +96,13 @@ void insert(struct BST* BST, int key)
 
 	Node = _newNode(key);
 
+    if(key < (*parent).key)
+        (*parent).left = Node;
+    else
+        (*parent).right = Node;
+
+
+
 	// not inserting the new node anywhere just printing.
 
 	printf("%d ", (*Node).key);
