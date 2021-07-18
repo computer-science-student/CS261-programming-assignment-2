@@ -11,8 +11,8 @@ void _delete_3();
 
 // Creates the BST. Returns a pointer to the BST.
 struct BST* createBST(){
-    // Create the BST, tree.
-    struct BST * treeRoot = malloc(sizeof(struct BST*)); // free this malloc!
+    // Create the BST, treeRoot.
+    struct BST * treeRoot = (struct BST *)malloc(sizeof(struct BST*)); // free this malloc!
     treeRoot->root = NULL;
     //return 1;
     return treeRoot;
@@ -88,7 +88,7 @@ void insert(struct BST* bst, int key)
         // node is root so create root!
         Node = _newNode(key);
         printf("%d\n", (*Node).key);
-        bst->root = Node; // this is what is causing seg faults
+        (*bst).root = Node; // this is what is causing seg faults
         printf("%d ", (*Node).key);
         return;
 	}
