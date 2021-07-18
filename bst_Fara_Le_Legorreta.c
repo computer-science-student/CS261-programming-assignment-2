@@ -137,14 +137,15 @@ int height(struct BST* bst){
 	struct Node* Node;
 	Node = (*bst).root;
 
-    int heightCount;
-    if (Node == NULL)
+    if (Node == NULL){
         return 0;
+    }
 
     leftSubtree->root = (*Node).left;
     rightSubtree->root = (*Node).right;
-    heightCount = max( height(leftSubtree), height(rightSubtree ) ) + 1;
-    return heightCount;
+    //printf("");
+
+    return max( height(leftSubtree), height(rightSubtree ) ) + 1;
 }
 
 int depth(struct BST* root, int key){
