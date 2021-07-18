@@ -150,15 +150,14 @@ int height(struct BST* node){
 		}
 		++i;
 	}
-
-
     return i;
 }
 
 int depth(struct BST* root, int key){
-    // TODO for khanhble
-	if (root == NULL)
-		return -1;
+    // Base case checks if root is leaf.
+	if (root == NULL){
+        return -1;
+	}
 
 	int dist = -1;
 
