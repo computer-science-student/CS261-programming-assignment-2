@@ -109,9 +109,7 @@ void insert(struct BST* BST, int key)
 
 	Node = _newNode(key);
 
-	assert(parent); // This failed
-	// This is giving seg fault errors.
-
+	assert(parent);
     if(key < (*parent).key)
         (*parent).left = Node;
     else
