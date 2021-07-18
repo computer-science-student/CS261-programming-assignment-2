@@ -143,7 +143,7 @@ int height(struct BST* bst){
 
     leftSubtree->root = (*Node).left;
     rightSubtree->root = (*Node).right;
-    //printf("");
+    printf("key of node: %d\n", (*Node).key);
 
     return max( height(leftSubtree), height(rightSubtree ) ) + 1;
 }
