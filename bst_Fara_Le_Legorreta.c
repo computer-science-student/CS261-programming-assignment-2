@@ -141,6 +141,7 @@ int height(struct BST* bst){
     int heightCount;
     if (Node == NULL)
         return 0;
+
     heightCount = max( height( (*Node).left), height( (*Node).right) )+ 1;
     return heightCount;
 }
