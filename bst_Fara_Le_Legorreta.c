@@ -219,6 +219,9 @@ int height(struct BST* bst){
     // Returns the height of the tree
     // by counting the amount of times one goes left/right
     // and gets the max.
+    // I am still getting seg fault errors from height() function,
+    // so I commented out height() for now until I fix these seg fault errors - Computer-Science-Student
+    /*
     struct BST *leftSubtree, *rightSubtree;
 	struct Node* Node;
 	Node = (*bst).root;
@@ -234,6 +237,7 @@ int height(struct BST* bst){
     printf("key of node: %d\n", (*Node).key);
 
     return max( height(leftSubtree), height(rightSubtree ) ) + 1;
+    */
 }
 
 int depth(struct BST* root, int key){
