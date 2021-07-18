@@ -128,12 +128,16 @@ void insert(struct BST* BST, int key)
 
 
 int height(struct BST* node){
-    // Returns the height of a certain node in the tree
+    // Returns the height of the tree
     // by counting the amount of times one goes left/right
+    // and gets the max.
+    struct * Node currentNode;
+    struct * Node rootNode = node; // initialize the node.
+
+
     int i = 0;
     int key = (*node).key; // gets the key
     // need the root node here
-
 
 	// When node is null, while ends. Traverse the whole tree
 	// and increment i every time you go left or right
@@ -150,13 +154,6 @@ int height(struct BST* node){
 
     return i;
 }
-
-// Old depth started by Computer-Science-Student.
-//int depth(struct BST* tree, int key){}
-
-
-// the first parameter of depth should be of this type:
-// struct BST*
 
 int depth(struct BST* root, int key){
     // TODO for khanhble
