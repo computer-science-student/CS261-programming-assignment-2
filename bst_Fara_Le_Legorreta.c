@@ -8,13 +8,11 @@ void _delete_1();
 void _delete_2();
 void _delete_3();
 
-// make tree root global
-struct BST * treeRoot;
 
 // Creates the BST. Returns a pointer to the BST.
 struct BST* createBST(){
     // Create the BST, tree.
-    treeRoot = malloc(sizeof(struct BST*)); // free this malloc!
+    struct BST * treeRoot = malloc(sizeof(struct BST*)); // free this malloc!
     treeRoot->root = NULL;
     //return 1;
     return treeRoot;
@@ -135,6 +133,7 @@ int height(struct BST* bst){
     // Returns the height of the tree
     // by counting the amount of times one goes left/right
     // and gets the max.
+    struct BST *leftSubtree, *rightSubtree;
 	struct Node* Node;
 	Node = (*bst).root;
 
@@ -142,7 +141,9 @@ int height(struct BST* bst){
     if (Node == NULL)
         return 0;
 
-    heightCount = max( height( (*Node).left), height( (*Node).right) )+ 1;
+    leftSubtree->root = (*Node).left;
+    rightSubtree->root = (*Node).right;
+    heightCount = max( height(leftSubtree), height(rightSubtree ) ) + 1;
     return heightCount;
 }
 
