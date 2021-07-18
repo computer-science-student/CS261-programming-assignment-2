@@ -126,31 +126,22 @@ void insert(struct BST* BST, int key)
 	return;
 }
 
-
+int max(int x, int y)
+{
+    if(x<y)
+        return y;
+    else
+        return x;
+}
 int height(struct BST* node){
     // Returns the height of the tree
     // by counting the amount of times one goes left/right
     // and gets the max.
-    struct * Node currentNode;
-    struct * Node rootNode = node; // initialize the node.
-
-
-    int i = 0;
-    int key = (*node).key; // gets the key
-    // need the root node here
-
-	// When node is null, while ends. Traverse the whole tree
-	// and increment i every time you go left or right
-	while (Node != NULL) { // ensures that the inserted node is a leaf
-		if (key < (*Node).key){ // goes to the left
-            Node = (*Node).left;
-		}
-		else if (key > (*Node).key){ // goes to the right
-		    Node = (*Node).right;
-		}
-		++i;
-	}
-    return i;
+    int height;
+    if (node == NULL)
+        return 0;
+    height = max(height((*node).left), height(*node).right)) + 1;
+    return height;
 }
 
 int depth(struct BST* root, int key){
