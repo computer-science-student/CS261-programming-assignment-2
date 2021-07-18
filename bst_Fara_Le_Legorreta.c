@@ -88,7 +88,7 @@ void insert(struct BST* bst, int key)
         // node is root so create root!
         bst->root = (struct Node *)malloc(sizeof(struct Node *));
         bst->root = _newNode(key);
-        printf("%d\n", (*(bst->root).key);
+        printf("%d\n", (*(bst->root)).key);
         //bst->root = Node; // this is what is causing seg faults
         //printf("%d ", (*Node).key);
         return;
@@ -144,6 +144,8 @@ int height(struct BST* bst){
         return 0;
     }
 
+    leftSubtree->root = (struct Node *)malloc(sizeof(struct Node *));
+    rightSubtree->root = (struct Node *)malloc(sizeof(struct Node *));
     leftSubtree->root = (*Node).left;
     rightSubtree->root = (*Node).right;
     printf("key of node: %d\n", (*Node).key);
