@@ -88,22 +88,24 @@ void insert(struct BST* BST, int key)
 	// When node is null, while ends.
 	while (Node != NULL) { // ensures that the inserted node is a leaf
 		if (key < (*Node).key){ // goes to the
-            //parent = Node;
+            parent = Node;
             Node = (*Node).left;
 		}
 		else if (key > (*Node).key){
-            //parent = Node;
+            parent = Node;
 		    Node = (*Node).right;
 		}
 	}
 
 	Node = _newNode(key);
 
-    /*if(key < (*parent).key)
+	assert(parent);
+	// This is giving seg fault errors.
+
+    if(key < (*parent).key)
         (*parent).left = Node;
     else
         (*parent).right = Node;
-        */
 
 
 
