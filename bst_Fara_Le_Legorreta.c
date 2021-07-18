@@ -34,20 +34,40 @@ void _inorder(struct Node* Node)
 void inorderTraversal(struct BST* BST)
 {
 //	_inorder(BST->root);
+
 	struct Node* Node;
-	Node = (*BST).root;
-
-//	while (Node != NULL)
-//	{
-//		Node = (*Node).left;
-//	}
-
-    // Computer-science-student commented out the following
-    // printf statement to ensure that inorderTraversal compiles
-	//printf("%d ", (*Node).key);
+	struct Node* parent;
+	
+	if (BST->root == NULL)
+		return;
+	
+	Node = BST->root;
+	while (Node != NULL) {
+		if (Node->left == NULL) {
+			printf("%d ", Node->key);
+			Node = Node->right;
+		}
+		
+		else {
+			parent = Node->left;
+			while (parent->right != NULL 
+			       && parent->right != Node)
+				parent = parent->right;
+			
+			if (parent->right == NULL) {
+				parent->right = Node;
+				Node = Node->left;
+			}
+			
+			else {
+				parent->right = NULL;
+				printf("%d ", Node->key);
+				Node = Node->right;
+			}
+		}
+	}
 }
-
-
+	
 
 /*
 // Old insertNode
@@ -65,13 +85,15 @@ struct Node* _insertNode(struct Node* Node, int key)
 }
 */
 
-// _newNode creates and returns a new node.
-// Used by insert function.
+// A utility function that allocates memory for a
+// new node, stores the value passed as key to that
+// new node, and returns the memory address of the
+// new node. Used by the insert function.
 struct Node* _newNode(int key)
 {
 	struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
 
-    assert(temp); // check if temp got assigned to malloc or not
+	assert(temp); // check if temp got assigned to malloc or not
 
 	temp->key = key;
 	temp->left = temp->right = NULL;
@@ -79,8 +101,58 @@ struct Node* _newNode(int key)
 	return temp;
 }
 
+
+// A function that finds the appropriate leaf
+// within BST under which to append a new node
+// with the value passed as key.
 void insert(struct BST* bst, int key)
 {
+	struct Node* current;
+	struct Node* parent;
+	
+	current = BST->root;
+	
+	// Base case. If the tree is empty, 
+	// create a node to store as root.
+	if (current == NULL) {
+		BST->root = _newNode(key);
+		return;
+	}
+	
+	// Find the appropriate leaf onto which
+	// a new node will be appended. The 
+	// appropriate leaf is found when 
+	// current == NULL. The leaf is stored
+	// as 'parent'.
+	while (current != NULL) {
+		if (key < current->key) {
+			parent = current;
+			current = current->left;
+		}
+		else if (key > current->key) {
+			parent = current;
+			current = current->right;
+		}
+	}
+	
+	// The new node is created as a new left
+	// or right node under parent.
+	if (key < parent->key) {
+		parent->left = _newNode(key);
+		return;
+	}
+	else if (key > parent->key) {
+		parent->right = _newNode(key);
+		return;
+	}
+	return;
+}
+	
+	
+	
+	
+/* I don't think we need any of the following code anymore! -Tyler
+
 	struct Node* Node;
 	Node = (*bst).root;
 
@@ -116,14 +188,15 @@ void insert(struct BST* bst, int key)
     else
         (*parent).right = Node;
 
-
-
 	// not inserting the new node anywhere just printing.
 
 	printf("%d ", (*Node).key);
 
 	return;
 }
+
+End of block to be deleted. */ 
+
 
 int max(int x, int y)
 {
@@ -132,6 +205,8 @@ int max(int x, int y)
     else
         return x;
 }
+
+
 int height(struct BST* bst){
     // Returns the height of the tree
     // by counting the amount of times one goes left/right
