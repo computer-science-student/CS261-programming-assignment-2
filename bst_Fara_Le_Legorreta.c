@@ -30,40 +30,48 @@ void _inorder(struct Node* Node)
 }
 */
 
-
+// A function that traverses a BST in order
+// and prints each key of each node as it is
+// traversed. 
 void inorderTraversal(struct BST* BST)
 {
 //	_inorder(BST->root);
 
-	struct Node* Node;
+	struct Node* current;
 	struct Node* parent;
 	
-	if (BST->root == NULL)
+	current = BST->root
+	// Base case. If the BST is empty, 
+	// there is nothing to print. 
+	if (current == NULL)
 		return;
 	
-	Node = BST->root;
-	while (Node != NULL) {
-		if (Node->left == NULL) {
-			printf("%d ", Node->key);
-			Node = Node->right;
+	// While the current node is not empty,
+	// traverse left as far as possible, print  
+	// print that node, and move right.
+	while (current != NULL) {
+		if (current->left == NULL) {
+			printf("%d ", current->key);
+			current = current->right;
 		}
 		
+		
 		else {
-			parent = Node->left;
+			parent = current->left;
 			while (parent->right != NULL 
-			       && parent->right != Node)
+			       && parent->right != current)
 				parent = parent->right;
 			
-			if (parent->right == NULL) {
-				parent->right = Node;
-				Node = Node->left;
-			}
+				if (parent->right == NULL) {
+					parent->right = current;
+					current = current->left;
+				}
 			
-			else {
-				parent->right = NULL;
-				printf("%d ", Node->key);
-				Node = Node->right;
-			}
+				else {	
+					parent->right = NULL;
+					printf("%d ", current->key);
+					current = current->right;
+				}
 		}
 	}
 }
@@ -105,7 +113,7 @@ struct Node* _newNode(int key)
 // A function that finds the appropriate leaf
 // within BST under which to append a new node
 // with the value passed as key.
-void insert(struct BST* bst, int key)
+void insert(struct BST* BST, int key)
 {
 	struct Node* current;
 	struct Node* parent;
