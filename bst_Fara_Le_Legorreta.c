@@ -69,6 +69,8 @@ struct Node* _newNode(int key)
 {
 	struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
 
+    assert(temp); // check if temp got assigned to malloc or not
+
 	temp->key = key;
 	temp->left = temp->right = NULL;
 
