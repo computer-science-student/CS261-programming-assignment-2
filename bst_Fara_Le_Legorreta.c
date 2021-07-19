@@ -252,7 +252,7 @@ int searchBST(struct BST b, int x) {
 }
 
 int depth(struct BST* base, int key) {
-    struct Node* curr = base.root; // current node
+    struct Node* curr = base->root; // current node
     int count = 0; // initialize the counter variable
 
     // Check if this is the root node
@@ -263,11 +263,17 @@ int depth(struct BST* base, int key) {
         if (key == curr->key){
                 return 1;
         }
-        else if (x < curr->key) {
+        else if (key < curr->key) {
             // go left
+            ++count;
             curr = curr->left;
         }
-        else curr = curr->right;
+        else {
+            // go right
+            ++count;
+            curr = curr->right;
+        }
+
     }
 
 
