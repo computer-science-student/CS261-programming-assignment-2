@@ -240,7 +240,48 @@ int height(struct BST* bst){
     */
 }
 
-int depth(struct BST* root, int key){
+
+
+// BST search
+int searchBST(struct BST b, int x) {
+    struct Node* curr = b.root;
+    while (curr != NULL) {
+        if (x == curr->key) return 1;
+        else if (x < curr->key) curr = curr->left;
+        else curr = curr->right;
+    }
+    return 0;
+}
+
+int depth(struct BST* root, int key)
+{
+    // Create nodes for the traversal
+	struct Node* current;
+	struct Node* parent;
+
+	current = BST->root;
+
+	// Base case. If the tree is empty,
+	// create a node to store as root.
+	if (current == NULL) { // If tree is empty
+		BST->root = _newNode(key);
+		return;
+	}
+
+
+    // While the current node is null,
+
+    while (current != NULL) {
+		if (key < current->key) {
+			parent = current;
+			current = current->left;
+		}
+		else if (key > current->key) {
+			parent = current;
+			current = current->right;
+		}
+	}
+
 
 }
 
