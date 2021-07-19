@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "bst.h"
 #include <assert.h>
+// test
 
 // Create function prototypes for the different cases for delete.
 void _delete_1();
@@ -275,6 +276,9 @@ int depth(struct BST* base, int key) {
         }
 
     }
+    printf("depth: %d\n", count);
+
+    return count;
 
 
 
@@ -290,7 +294,5 @@ void _delete_3(){}*/
 void deleteBST(struct BST* tree){
     // free the other nodes
     free(tree);
-
-
 }
 
