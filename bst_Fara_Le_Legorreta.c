@@ -241,19 +241,7 @@ int height(struct BST* bst){
 }
 
 int depth(struct BST* root, int key){
-    // Base case checks if root is leaf.
-	if (root == NULL){
-        return -1;
-	}
 
-	int dist = -1;
-
-	//if ((root->key == x)
-	  //  || (dist = depth(root->left, x)) >= 0
-	   // || (dist = depth(root->right, x)) >=0)
-		//return dist + 1;
-
-	return dist;
 }
 
 
