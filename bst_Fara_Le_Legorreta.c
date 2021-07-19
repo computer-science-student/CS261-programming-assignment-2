@@ -262,7 +262,7 @@ int depth(struct BST* base, int key) {
 
     while (curr != NULL) {
         if (key == curr->key){
-                return 1;
+                return count;
         }
         else if (key < curr->key) {
             // go left
