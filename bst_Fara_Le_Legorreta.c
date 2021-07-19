@@ -242,7 +242,7 @@ int height(struct BST* bst){
 
 
 
-// BST search
+// BST search taken from the lecture
 int searchBST(struct BST b, int x) {
     struct Node* curr = b.root;
     while (curr != NULL) {
