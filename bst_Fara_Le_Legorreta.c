@@ -226,17 +226,35 @@ int max(int x, int y)
     return max( height(leftSubtree), height(rightSubtree ) ) + 1;
     */
 //}
+
+int tree_height(struct Node* root){
+    int left_height = tree_height( root->left);
+    int right_height = tree_height(root->right);
+    return max(left_height, right_height)+1;
+
+}
+
 int height(struct BST* bst){
+    printf("height function called\n");
     struct Node* curr = bst->root;
     if (curr == NULL){//if no binary tree exist
         return -1;
     } 
     else{
-        //find the height of both left and right path of the subtree
-        //use recursion call to make the tree keep going either left, right until reaches the end
-        int left_height= height(curr->left);
-        int right_height= height(curr->right);
-        printf("height function called\n");
+        int max_height = tree_height(curr);       
+        //contruct the new left and right subtree and compare ans        
+        /*struct BST * leftSubtree = (struct BST *)malloc(sizeof(struct BST*));
+        struct BST * rightSubtree = (struct BST *)malloc(sizeof(struct BST*));
+        //let them all start that the root of your binary tree
+        leftSubtree->root =bst->root;
+        rightSubtree->root =bst->root;
+        //create curr pointer for left and right sub tree
+        struct Node* left_curr = bst->root;
+        struct Node* right_curr = bst->root;
+        //maybe create the function that make left and right subtree
+        int left_height= height(leftSubtree);
+        int right_height= height(rightSubtree);
+
         //debugging
         printf("BST left height: %d\n\n",left_height);
         printf("BST right height: %d\n\n",right_height);
@@ -247,7 +265,7 @@ int height(struct BST* bst){
         }
         else{
             return right_height+1;
-        }       
+        }*/       
 
     }
 }
