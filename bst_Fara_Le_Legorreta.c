@@ -227,10 +227,19 @@ int max(int x, int y)
     */
 //}
 
-int tree_height(struct Node* root){
-    int left_height = tree_height( root->left);
-    int right_height = tree_height(root->right);
-    return max(left_height, right_height)+1;
+int get_height(struct Node* root){
+    //base case
+    int left_height = 0;
+    int right_height = 0;
+
+    if(root->left != NULL){
+        left_height = 1 + get_height(root->left);
+    }
+
+     if(root->right != NULL){
+        right_height = 1 + get_height(root->right);
+    }   
+    return max(left_height, right_height);
 
 }
 
@@ -241,31 +250,7 @@ int height(struct BST* bst){
         return -1;
     } 
     else{
-        int max_height = tree_height(curr);       
-        //contruct the new left and right subtree and compare ans        
-        /*struct BST * leftSubtree = (struct BST *)malloc(sizeof(struct BST*));
-        struct BST * rightSubtree = (struct BST *)malloc(sizeof(struct BST*));
-        //let them all start that the root of your binary tree
-        leftSubtree->root =bst->root;
-        rightSubtree->root =bst->root;
-        //create curr pointer for left and right sub tree
-        struct Node* left_curr = bst->root;
-        struct Node* right_curr = bst->root;
-        //maybe create the function that make left and right subtree
-        int left_height= height(leftSubtree);
-        int right_height= height(rightSubtree);
-
-        //debugging
-        printf("BST left height: %d\n\n",left_height);
-        printf("BST right height: %d\n\n",right_height);
-        
-        //return the higher value as height
-        if(left_height >= right_height){
-            return left_height+1;
-        }
-        else{
-            return right_height+1;
-        }*/       
+        int max_height = get_height(curr);          
 
     }
 }
@@ -309,10 +294,6 @@ int depth(struct BST* base, int key) {
 }
 
 
-// Commented out the various ways to delete
-/*void _delete_1(){}
-void _delete_2(){}
-void _delete_3(){}*/
 
 void deleteBST(struct BST* tree){
     // free the other nodes
