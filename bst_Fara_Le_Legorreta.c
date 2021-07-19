@@ -274,16 +274,9 @@ int depth(struct BST* base, int key) {
             ++count;
             curr = curr->right;
         }
-
     }
-    //printf("depth: %d\n", count);
-
     return count;
-
-
-
 }
-
 
 
 // Commented out the various ways to delete
