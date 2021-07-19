@@ -276,7 +276,7 @@ int depth(struct BST* base, int key) {
         }
 
     }
-    printf("depth: %d\n", count);
+    //printf("depth: %d\n", count);
 
     return count;
 
