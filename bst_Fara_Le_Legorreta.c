@@ -4,11 +4,12 @@
 #include <assert.h>
 // test
 
+
 // Create function prototypes for the different cases for delete.
 void _delete_1();
 void _delete_2();
 void _delete_3();
-
+ 
 
 // Creates the BST. Returns a pointer to the BST.
 struct BST* createBST(){
@@ -84,12 +85,10 @@ struct Node* _insertNode(struct Node* Node, int key)
 {
 	if (Node == NULL)
 		return _newNode(key);
-
 	if (key < Node->key)
 		Node->left = _insertNode(Node->left, key);
 	else if (key > Node->key)
 		Node->right = _insertNode(Node->right, key);
-
 	return Node;
 }
 */
@@ -161,10 +160,8 @@ void insert(struct BST* BST, int key)
 
 
 /* I don't think we need any of the following code anymore! -Tyler
-
 	struct Node* Node;
 	Node = (*bst).root;
-
 	if (Node == NULL){
         // node is root so create root!
         bst->root = (struct Node *)malloc(sizeof(struct Node *));
@@ -174,9 +171,7 @@ void insert(struct BST* BST, int key)
         //printf("%d ", (*Node).key);
         return;
 	}
-
     struct Node* parent = NULL; // prt for parent
-
 	// When node is null, while ends.
 	while (Node != NULL) { // ensures that the inserted node is a leaf
 		if (key < (*Node).key){ // goes to the left
@@ -188,22 +183,16 @@ void insert(struct BST* BST, int key)
 		    Node = (*Node).right;
 		}
 	}
-
 	Node = _newNode(key);
-
 	assert(parent);
     if(key < (*parent).key)
         (*parent).left = Node;
     else
         (*parent).right = Node;
-
 	// not inserting the new node anywhere just printing.
-
 	printf("%d ", (*Node).key);
-
 	return;
 }
-
 End of block to be deleted. */
 
 
@@ -216,7 +205,7 @@ int max(int x, int y)
 }
 
 
-int height(struct BST* bst){
+//int height(struct BST* bst){
     // Returns the height of the tree
     // by counting the amount of times one goes left/right
     // and gets the max.
@@ -226,20 +215,43 @@ int height(struct BST* bst){
     struct BST *leftSubtree, *rightSubtree;
 	struct Node* Node;
 	Node = (*bst).root;
-
     if (Node == NULL){
         return 0;
     }
-
     leftSubtree->root = (struct Node *)malloc(sizeof(struct Node *));
     rightSubtree->root = (struct Node *)malloc(sizeof(struct Node *));
     leftSubtree->root = (*Node).left;
     rightSubtree->root = (*Node).right;
     printf("key of node: %d\n", (*Node).key);
-
     return max( height(leftSubtree), height(rightSubtree ) ) + 1;
     */
+//}
+int height(struct BST* bst){
+    struct Node* curr = bst->root;
+    if (curr == NULL){//if no binary tree exist
+        return -1;
+    } 
+    else{
+        //find the height of both left and right path of the subtree
+        //use recursion call to make the tree keep going either left, right until reaches the end
+        int left_height= height(curr->left);
+        int right_height= height(curr->right);
+        printf("height function called\n");
+        //debugging
+        printf("BST left height: %d\n\n",left_height);
+        printf("BST right height: %d\n\n",right_height);
+        
+        //return the higher value as height
+        if(left_height >= right_height){
+            return left_height+1;
+        }
+        else{
+            return right_height+1;
+        }       
+
+    }
 }
+
 
 // BST search taken from the lecture
 int searchBST(struct BST b, int x) {
@@ -288,4 +300,3 @@ void deleteBST(struct BST* tree){
     // free the other nodes
     free(tree);
 }
-
