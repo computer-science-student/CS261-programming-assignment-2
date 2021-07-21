@@ -225,7 +225,58 @@ int depth(struct BST* base, int key) {
 
 
 
+// Deletes all the nodes in a BST.
 void deleteBST(struct BST* tree){
+    // traverse through the tree, deleting each and every node.
+
+    // Create current and parent nodes
+    struct Node* current;
+	struct Node* parent;
+
+	// Set current to be root.
+	current = tree->root;
+
+	// While the current node is not empty,
+	// traverse left as far as possible,
+	// DELETE that node, and move right.
+	while (current != NULL) {
+		if (current->left == NULL) {
+            // If the current node is the furthest to the left then,
+            free(current); // free that node from the heap!
+			current = current->right; // set current to be current's right
+		}
+
+		else {
+            // if the current node is NOT the furthest to the left then,
+            // set the parent to be current's left.
+			parent = current->left;
+            // while parent's right is not null, and not the current node,
+            // set the new parent node to be parent's right
+			while (parent->right != NULL
+			       && parent->right != current)
+				parent = parent->right;
+
+				if (parent->right == NULL) {
+					parent->right = current;
+					current = current->left;
+				} // This doesn't make sense to me. Is this if statement needed?
+
+				else {
+					parent->right = NULL;
+					printf("%d ", current->key); // Delete the node here?
+					current = current->right;
+				}
+		}
+
+	}
+
+
+
+
+
+
+
+
     // free the other nodes
     free(tree);
 }
