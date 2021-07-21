@@ -239,7 +239,10 @@ void deleteBST(struct BST* tree){
 	// While the current node is not empty,
 	// traverse left as far as possible,
 	// DELETE that node, and move right.
-	while (current != NULL) {}
+	while (current != NULL) {
+
+
+	}
 
 
 
