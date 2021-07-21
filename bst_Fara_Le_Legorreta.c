@@ -267,7 +267,6 @@ void deleteBST(struct BST* tree){
 					current = current->right;
 				}
 		}
-
 	}
 
 
