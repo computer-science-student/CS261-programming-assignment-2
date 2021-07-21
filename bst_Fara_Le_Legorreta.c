@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "bst.h"
 #include <assert.h>
-
+#include <stdio.h>
 
 // Creates the BST. Returns a pointer to the BST.
 struct BST* createBST(){
