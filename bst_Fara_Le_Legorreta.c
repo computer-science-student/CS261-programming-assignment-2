@@ -231,6 +231,7 @@ int depth(struct BST* base, int key) {
   */
 void printPostorder(struct Node* node)
 {
+    printf("printPostrder function called.\n");
     if (node == NULL)
         return;
 
