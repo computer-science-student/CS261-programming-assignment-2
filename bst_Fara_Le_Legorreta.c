@@ -239,6 +239,7 @@ void deleteBST(struct BST* tree){
 	// When you find a node, delete/free it
 	// and delete the parent's pointer to the node that is deleted. (Is that needed?)
 	// Find all the leaf nodes and delete them
+	/*
 	while (current != NULL) {
 	    // traverse left as far as possible,
         if (current->left == NULL) {
@@ -249,7 +250,8 @@ void deleteBST(struct BST* tree){
         }
 
 
-	}
+
+	} */
 
 
 
