@@ -1,14 +1,7 @@
 #include <stdlib.h>
 #include "bst.h"
 #include <assert.h>
-// test
 
-
-// Create function prototypes for the different cases for delete.
-void _delete_1();
-void _delete_2();
-void _delete_3();
- 
 
 // Creates the BST. Returns a pointer to the BST.
 struct BST* createBST(){
@@ -156,45 +149,6 @@ void insert(struct BST* BST, int key)
 }
 
 
-
-
-/* I don't think we need any of the following code anymore! -Tyler
-	struct Node* Node;
-	Node = (*bst).root;
-	if (Node == NULL){
-        // node is root so create root!
-        bst->root = (struct Node *)malloc(sizeof(struct Node *));
-        bst->root = _newNode(key);
-        printf("%d\n", (*(bst->root)).key);
-        //bst->root = Node; // this is what is causing seg faults
-        //printf("%d ", (*Node).key);
-        return;
-	}
-    struct Node* parent = NULL; // prt for parent
-	// When node is null, while ends.
-	while (Node != NULL) { // ensures that the inserted node is a leaf
-		if (key < (*Node).key){ // goes to the left
-            parent = Node;
-            Node = (*Node).left;
-		}
-		else if (key > (*Node).key){ // goes to the right
-            parent = Node;
-		    Node = (*Node).right;
-		}
-	}
-	Node = _newNode(key);
-	assert(parent);
-    if(key < (*parent).key)
-        (*parent).left = Node;
-    else
-        (*parent).right = Node;
-	// not inserting the new node anywhere just printing.
-	printf("%d ", (*Node).key);
-	return;
-}
-End of block to be deleted. */
-
-
 int max(int x, int y)
 {
     if(x<y)
@@ -202,29 +156,6 @@ int max(int x, int y)
     else
         return x;
 }
-
-
-//int height(struct BST* bst){
-    // Returns the height of the tree
-    // by counting the amount of times one goes left/right
-    // and gets the max.
-    // I am still getting seg fault errors from height() function,
-    // so I commented out height() for now until I fix these seg fault errors - Computer-Science-Student
-    /*
-    struct BST *leftSubtree, *rightSubtree;
-	struct Node* Node;
-	Node = (*bst).root;
-    if (Node == NULL){
-        return 0;
-    }
-    leftSubtree->root = (struct Node *)malloc(sizeof(struct Node *));
-    rightSubtree->root = (struct Node *)malloc(sizeof(struct Node *));
-    leftSubtree->root = (*Node).left;
-    rightSubtree->root = (*Node).right;
-    printf("key of node: %d\n", (*Node).key);
-    return max( height(leftSubtree), height(rightSubtree ) ) + 1;
-    */
-//}
 
 int get_height(struct Node* root){
     //base case
@@ -237,7 +168,7 @@ int get_height(struct Node* root){
 
      if(root->right != NULL){
         right_height = 1 + get_height(root->right);
-    }   
+    }
     return max(left_height, right_height);
 
 }
@@ -247,9 +178,9 @@ int height(struct BST* bst){
     struct Node* curr = bst->root;
     if (curr == NULL){//if no binary tree exist
         return -1;
-    } 
+    }
     else{
-        int max_height = get_height(curr);          
+        int max_height = get_height(curr);
 
     }
 }
