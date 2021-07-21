@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include "bst.h"
 #include <assert.h>
@@ -299,3 +298,4 @@ void deleteBST(struct BST* tree){
     // free the other nodes
     free(tree);
 }
+
