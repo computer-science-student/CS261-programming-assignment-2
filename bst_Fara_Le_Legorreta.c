@@ -259,6 +259,10 @@ void deleteBST(struct BST* tree){
 	// Set current to be root.
 	current = tree->root;
 
+	// Put the current in the function printoPostorder()
+	printPostorder(current);
+
+
 	// Do post order traversal
 	// When you find a node, delete/free it
 	// and delete the parent's pointer to the node that is deleted. (Is that needed?)
