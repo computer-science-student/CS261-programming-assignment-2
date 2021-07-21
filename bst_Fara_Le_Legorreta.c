@@ -229,7 +229,7 @@ int depth(struct BST* base, int key) {
   This printPostorder function below was taken from here:
   https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
   */
-void printPostorder(struct BST* node)
+void printPostorder(struct Node* node)
 {
     if (node == NULL)
         return;
