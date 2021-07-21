@@ -224,6 +224,30 @@ int depth(struct BST* base, int key) {
 
 
 
+/* Given a binary tree, print its nodes according to the
+  "bottom-up" postorder traversal.
+  This printPostorder function below was taken from here:
+  https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
+  */
+void printPostorder(struct BST* node)
+{
+    if (node == NULL)
+        return;
+
+    // first recur on left subtree
+    printPostorder(node->left);
+
+    // then recur on right subtree
+    printPostorder(node->right);
+
+    // now deal with the node
+    printf("%d ", node->data);
+}
+
+
+
+
+
 // Deletes all the nodes in a BST.
 void deleteBST(struct BST* tree){
     // traverse through the tree, deleting each and every node.
