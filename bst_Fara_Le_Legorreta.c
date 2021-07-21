@@ -179,9 +179,8 @@ int height(struct BST* bst){
     if (curr == NULL){//if no binary tree exist
         return -1;
     }
-    else{
+    else {
         int max_height = get_height(curr);
-
     }
 }
 
@@ -236,10 +235,11 @@ void deleteBST(struct BST* tree){
 	// Set current to be root.
 	current = tree->root;
 
-	// While the current node is not empty,
-	// traverse left as far as possible,
-	// DELETE that node, and move right.
+	// Do post order traversal
+	// When you find a node, delete/free it
+	// and delete the parent's pointer to the node that is deleted. (Is that needed?)
 	while (current != NULL) {
+	    // Find all the leaf nodes and delete them
 
 
 	}
