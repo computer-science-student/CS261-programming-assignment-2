@@ -241,7 +241,7 @@ void printPostorder(struct Node* node)
     printPostorder(node->right);
 
     // now deal with the node
-    printf("%d ", node->data);
+    printf("%d ", node->key);
 }
 
 
