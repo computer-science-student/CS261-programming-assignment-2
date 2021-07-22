@@ -231,7 +231,8 @@ int depth(struct BST* base, int key) {
   */
 void printPostorder(struct Node* node)
 {
-
+    // Base case. Stop recursive function when
+    // the node is null (has reached the bottom of the tree).
     if (node == NULL)
         return;
 
@@ -242,7 +243,10 @@ void printPostorder(struct Node* node)
     printPostorder(node->right);
 
     // now deal with the node
-    printf("%d ", node->key);
+    //printf("%d ", node->key);
+    // Free the node
+    free(node);
+
 }
 
 
