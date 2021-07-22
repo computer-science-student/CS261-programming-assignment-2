@@ -233,7 +233,7 @@ int depth(struct BST* base, int key) {
 
   Given a binary tree, free its nodes according to the "bottom-up" post-order traversal.
   */
-void printPostorder(struct Node* node)
+void freePostorder(struct Node* node)
 {
     // Base case. Stop recursive function when
     // the node is null (has reached the bottom of the tree).
@@ -258,37 +258,12 @@ void printPostorder(struct Node* node)
 
 // Deletes all the nodes in a BST.
 void deleteBST(struct BST* tree){
-    // traverse through the tree, deleting each and every node.
+    // Traverse through the tree, deleting each and every node.
 
-    // Create current and parent nodes
-    struct Node* current;
-	struct Node* parent;
-
-	// Set current to be root.
-	current = tree->root;
-
-	printf("printPostrder function called.\n\n\n");
+    // Retrieve the current and set it to be the root.
+    struct Node* rootNode = tree->root;
 	// Put the current in the function printoPostorder()
-	printPostorder(current);
-
-
-	// Do post order traversal
-	// When you find a node, delete/free it
-	// and delete the parent's pointer to the node that is deleted. (Is that needed?)
-	// Find all the leaf nodes and delete them
-	/*
-	while (current != NULL) {
-	    // traverse left as far as possible,
-        if (current->left == NULL) {
-            // Delete that node if and only if it is a leaf?
-            if (current->right == NULL){
-                free(current);
-            }
-        }
-
-
-
-	} */
+	freePostorder(rootNode);
 
 
 
@@ -298,7 +273,8 @@ void deleteBST(struct BST* tree){
 
 
 
-    // free the other nodes
-        free(tree);
+
+    // free the tree
+    free(tree);
 }
 
