@@ -12,18 +12,6 @@ struct BST* createBST(){
     return treeRoot;
 }
 
-/*
-void _inorder(struct Node* Node)
-{
-	if (Node != NULL)
-	{
-		_inorder(Node->left);
-		printf("%d ", Node->key);
-		_inorder(Node->right);
-	}
-}
-*/
-
 // A function that traverses a BST in order
 // and prints each key of each node as it is
 // traversed.
@@ -183,10 +171,6 @@ int searchBST(struct BST b, int x) {
 int depth(struct BST* base, int key) {
     struct Node* curr = base->root; // current node
     int count = 0; // initialize the counter variable
-
-    // Check if this is the root node
-
-    // Check if root node.
 
     while (curr != NULL) {
         if (key == curr->key){
