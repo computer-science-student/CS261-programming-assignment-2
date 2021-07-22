@@ -44,8 +44,8 @@ void inorderTraversal(struct BST* BST)
 			       && parent->right != current)
 				parent = parent->right;
 
-				if (parent->right == NULL) {
-					parent->right = current;
+				if (parent->right == NULL) { // This is NULL
+					parent->right = current; // Set current's parent to go back up?
 					current = current->left;
 				}
 
