@@ -231,7 +231,7 @@ int depth(struct BST* base, int key) {
   */
 void printPostorder(struct Node* node)
 {
-    printf("printPostrder function called.\n");
+
     if (node == NULL)
         return;
 
@@ -260,6 +260,7 @@ void deleteBST(struct BST* tree){
 	// Set current to be root.
 	current = tree->root;
 
+	printf("printPostrder function called.\n\n\n");
 	// Put the current in the function printoPostorder()
 	printPostorder(current);
 
