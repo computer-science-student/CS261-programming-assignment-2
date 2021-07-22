@@ -148,8 +148,8 @@ void insert(struct BST* BST, int key)
 	return;
 }
 
-
-int max(int x, int y)
+/*_max is used to get_height*/
+int _max(int x, int y)
 {
     if(x<y)
         return y;
@@ -169,7 +169,7 @@ int get_height(struct Node* root){
      if(root->right != NULL){
         right_height = 1 + get_height(root->right);
     }
-    return max(left_height, right_height);
+    return _max(left_height, right_height);
 
 }
 
@@ -183,7 +183,6 @@ int height(struct BST* bst){
         int max_height = get_height(curr);
     }
 }
-
 
 // BST search taken from the lecture
 int searchBST(struct BST b, int x) {
@@ -222,8 +221,6 @@ int depth(struct BST* base, int key) {
     return count;
 }
 
-
-
 /*
   DISCLAIMER: I took a standard C program of a post order traversal and replaced the
   print function with a function that frees the node. This works because, by doing a post order
@@ -253,9 +250,6 @@ void freePostorder(struct Node* node)
 }
 
 
-
-
-
 // Deletes all the nodes in a BST.
 void deleteBST(struct BST* tree){
     // Traverse through the tree, deleting each and every node.
@@ -264,15 +258,6 @@ void deleteBST(struct BST* tree){
     struct Node* rootNode = tree->root;
 	// Put the current in the function printoPostorder()
 	freePostorder(rootNode);
-
-
-
-
-
-
-
-
-
 
     // free the tree
     free(tree);
