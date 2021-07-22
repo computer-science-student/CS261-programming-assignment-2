@@ -8,7 +8,6 @@ struct BST* createBST(){
     // Create the BST, treeRoot.
     struct BST * treeRoot = (struct BST *)malloc(sizeof(struct BST*)); // free this malloc!
     treeRoot->root = NULL;
-    //return 1;
     return treeRoot;
 }
 
@@ -36,7 +35,6 @@ void inorderTraversal(struct BST* BST)
 			printf("%d ", current->key);
 			current = current->right;
 		}
-
 
 		else {
 			parent = current->left;
@@ -97,7 +95,8 @@ void insert(struct BST* BST, int key)
 	// appropriate leaf is found when
 	// current == NULL. The leaf is stored
 	// as 'parent'.
-	while (current != NULL) { // This while loop traverses to the right node
+	// This while loop traverses to the right node
+	while (current != NULL) {
 		if (key < current->key) {
 			parent = current;
 			current = current->left;
@@ -108,8 +107,9 @@ void insert(struct BST* BST, int key)
 		}
 	}
 
-	// The new node is created as a new left
-	// or right node under parent.
+	// The new node is created as a new leaf
+	// on the left or right node under parent.
+	// Append the new node to the tree.
 	if (key < parent->key) {
 		parent->left = _newNode(key);
 		return;
