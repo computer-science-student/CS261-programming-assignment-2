@@ -71,20 +71,6 @@ void inorderTraversal(struct BST* BST)
 }
 
 
-/*
-// Old insertNode
-struct Node* _insertNode(struct Node* Node, int key)
-{
-	if (Node == NULL)
-		return _newNode(key);
-	if (key < Node->key)
-		Node->left = _insertNode(Node->left, key);
-	else if (key > Node->key)
-		Node->right = _insertNode(Node->right, key);
-	return Node;
-}
-*/
-
 // A utility function that allocates memory for a
 // new node, stores the value passed as key to that
 // new node, and returns the memory address of the
@@ -100,7 +86,6 @@ struct Node* _newNode(int key)
 
 	return temp;
 }
-
 
 // A function that finds the appropriate leaf
 // within BST under which to append a new node
