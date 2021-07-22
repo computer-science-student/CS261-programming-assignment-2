@@ -97,7 +97,7 @@ void insert(struct BST* BST, int key)
 	// appropriate leaf is found when
 	// current == NULL. The leaf is stored
 	// as 'parent'.
-	while (current != NULL) {
+	while (current != NULL) { // This while loop traverses to the right node
 		if (key < current->key) {
 			parent = current;
 			current = current->left;
@@ -157,7 +157,7 @@ int height(struct BST* bst){
     }
 }
 
-// BST search taken from the lecture
+// BST search taken from the lecture. Is this still needed?
 int searchBST(struct BST b, int x) {
     struct Node* curr = b.root;
     while (curr != NULL) {
