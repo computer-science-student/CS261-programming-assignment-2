@@ -242,10 +242,10 @@ void freePostorder(struct Node* node)
 
     // first recur on left subtree
     // Goes through all the nodes on the left side recursively
-    printPostorder(node->left);
+    freePostorder(node->left);
 
     // then recur on right subtree
-    printPostorder(node->right);
+    freePostorder(node->right);
 
     // Free the node
     free(node);
