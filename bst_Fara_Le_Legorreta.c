@@ -157,17 +157,6 @@ int height(struct BST* bst){
     }
 }
 
-// BST search taken from the lecture. Is this still needed?
-int searchBST(struct BST b, int x) {
-    struct Node* curr = b.root;
-    while (curr != NULL) {
-        if (x == curr->key) return 1;
-        else if (x < curr->key) curr = curr->left;
-        else curr = curr->right;
-    }
-    return 0;
-}
-
 int depth(struct BST* base, int key) {
     struct Node* curr = base->root; // current node
     int count = 0; // initialize the counter variable
