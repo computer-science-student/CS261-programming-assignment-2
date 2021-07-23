@@ -148,19 +148,11 @@ void insert(struct BST* BST, int key)
 }
 
 /*_max is used to get_height*/
-int _max(int x, int y)
-{
-    if(x<y)
-        return y;
-    else
-        return x;
-}
-
 int get_height(struct Node* root){
-    //base case
+
     int left_height = 0;
     int right_height = 0;
-
+ //recursive call keep increment the left and right heigh of tree and sub trees
     if(root->left != NULL){
         left_height = 1 + get_height(root->left);
     }
@@ -168,6 +160,7 @@ int get_height(struct Node* root){
      if(root->right != NULL){
         right_height = 1 + get_height(root->right);
     }
+	//compare height of each possible path
     return _max(left_height, right_height);
 
 }
@@ -181,8 +174,7 @@ int height(struct BST* bst){
     else {
         int max_height = get_height(curr);
     }
-}
-
+	
 int depth(struct BST* base, int key) {
     struct Node* curr = base->root; // current node
     int count = 0; // initialize the counter variable
