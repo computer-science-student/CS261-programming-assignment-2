@@ -12,41 +12,67 @@ struct BST* createBST(){
 }
 
 // A function that traverses a BST in order
-// and prints each key of each node as it is
-// traversed.
+// and prints the key of each node as it is
+// traversed. This method is a method called
+// Morris traversal of the tree.
 void inorderTraversal(struct BST* BST)
 {
-//	_inorder(BST->root);
-
 	struct Node* current;
 	struct Node* parent;
 
-	current = BST->root;
 	// Base case. If the BST is empty,
 	// there is nothing to print.
+	current = BST->root;
 	if (current == NULL)
 		return;
 
-	// While the current node is not empty,
-	// traverse left as far as possible, print
-	// print that node, and move right.
 	while (current != NULL) {
+		// current->left == NULL indicates that 
+		// the algorithm has reached the next 
+		// smallest number. So the algorithm
+		// prints current and then continues
+		// to the right, if possible. 
 		if (current->left == NULL) {
 			printf("%d ", current->key);
 			current = current->right;
 		}
 
+		// else if current->left != NULL, then there
+		// is a left branch to traverse. Having 
+		// traversed that branch, the algorithm needs
+		// to return to current and traverse its
+		// right branch. To facilitate this return,
+		// the algorithm seeks the immediate 
+		// predecessor of current. This immediate
+		// predecessor will ultimately be the
+		// last node of the left branch that is 
+		// traversed. So, a temporary link is formed
+		// between this immediate predecessor and
+		// current. In this way, the algorithm
+		// can return to current after traversing
+		// the left branch.
 		else {
+			// The algorithm seeks the immediate
+			// predecessor.
 			parent = current->left;
 			while (parent->right != NULL
 			       && parent->right != current)
 				parent = parent->right;
-
-				if (parent->right == NULL) { // This is NULL
-					parent->right = current; // Set current's parent to go back up?
+				
+				// The algorithm has found the immediate
+				// predecessor and creates a temporary
+				// link back to current.
+				if (parent->right == NULL) {
+					parent->right = current; 
 					current = current->left;
 				}
-
+				
+				// If parent->right == current, then the
+				// algorithm has traversed the entire
+				// left branch and has returned to the root
+				// node, i.e. current. So the temporary link
+				// is removed and current is printed. The
+				// algorithm moves on to the right branch.
 				else {
 					parent->right = NULL;
 					printf("%d ", current->key);
