@@ -52,21 +52,23 @@ void inorderTraversal(struct BST* BST)
 		// current. In this way, the algorithm
 		// can return to current after traversing
 		// the left branch.
-		else {
+	// CASE WEHRE LEFT POINTER OF NODE IS NOT NULL
+	else {
 			// The algorithm seeks the immediate
 			// predecessor.
-			parent = current->left;
-			while (parent->right != NULL
-			       && parent->right != current)
-				parent = parent->right;
-
+		parent = current->left;
+		//go to the rightmost 
+		while (parent->right != NULL && parent->right != current){
+			parent = parent->right;
+			}
+		}
 				// The algorithm has found the immediate
 				// predecessor and creates a temporary
 				// link back to current.
-				if (parent->right == NULL) {
-					parent->right = current;
-					current = current->left;
-				}
+		if (parent->right == NULL) {
+			parent->right = current;
+			current = current->left;
+		}
 
 				// If parent->right == current, then the
 				// algorithm has traversed the entire
@@ -74,11 +76,11 @@ void inorderTraversal(struct BST* BST)
 				// node, i.e. current. So the temporary link
 				// is removed and current is printed. The
 				// algorithm moves on to the right branch.
-				else {
-					parent->right = NULL;
-					printf("%d ", current->key);
-					current = current->right;
-				}
+		else {
+			parent->right = NULL;
+			printf("%d ", current->key);
+			current = current->right;
+			}
 		}
 	}
 	// Print new line to give space between the in-order traversal
