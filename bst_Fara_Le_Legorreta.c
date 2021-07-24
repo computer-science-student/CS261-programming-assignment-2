@@ -247,14 +247,14 @@ void freePostorder(struct Node* node)
 // Deletes all the nodes in a BST.
 void deleteBST(struct BST* tree){
     // Traverse through the tree, deleting each and every node.
-    printf("\n");
+    printf("\n"); //give whitespace
 
     // Retrieve the current and set it to be the root.
     struct Node* rootNode = tree->root;
 	// Put the current in the function printoPostorder()
 	freePostorder(rootNode);
 
-	printf("\nFree the BST\n");
+	printf("Free the BST\n");
 
     // free the tree
     free(tree);
