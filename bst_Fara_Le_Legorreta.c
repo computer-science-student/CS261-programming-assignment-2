@@ -157,10 +157,9 @@ int _max(int x, int y)
 }
 /*_max is used to get_height*/
 int get_height(struct Node* root){
-
     int left_height = 0;
     int right_height = 0;
- //recursive call keep increment the left and right heigh of tree and sub trees
+    //recursive call keep increment the left and right heigh of tree and sub trees
     if(root->left != NULL){
         left_height = 1 + get_height(root->left);
     }
@@ -168,20 +167,21 @@ int get_height(struct Node* root){
      if(root->right != NULL){
         right_height = 1 + get_height(root->right);
     }
-	//compare height of each possible path
+ 	//compare height of each possible path
     return _max(left_height, right_height);
 
 }
 
 int height(struct BST* bst){
-    printf("height function called\n");
+    //printf("height function called\n"); // delete this
     struct Node* curr = bst->root;
-    if (curr == NULL){
+    if (curr == NULL){//if no binary tree exist
         return -1;
     }
     else {
         int max_height = get_height(curr);
     }
+}
 
 int depth(struct BST* base, int key) {
     struct Node* curr = base->root; // current node
@@ -246,4 +246,4 @@ void deleteBST(struct BST* tree){
     // free the tree
     free(tree);
 }
-
+}
