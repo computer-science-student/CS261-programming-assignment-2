@@ -183,8 +183,9 @@ int height(struct BST* bst){
     }
     else {
         int max_height = get_height(curr);
+        // Should height be returning something? TODO
+        return max_height;
     }
-    // Should height be returning something? TODO
 }
 
 int depth(struct BST* base, int key) {
