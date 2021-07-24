@@ -61,7 +61,6 @@ void inorderTraversal(struct BST* BST)
 		while (parent->right != NULL && parent->right != current){
 			parent = parent->right;
 			}
-		}
 				// The algorithm has found the immediate
 				// predecessor and creates a temporary
 				// link back to current.
