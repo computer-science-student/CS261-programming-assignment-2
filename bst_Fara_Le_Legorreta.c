@@ -246,4 +246,3 @@ void deleteBST(struct BST* tree){
     // free the tree
     free(tree);
 }
-}
