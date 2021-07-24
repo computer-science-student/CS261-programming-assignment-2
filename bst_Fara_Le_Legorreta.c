@@ -151,7 +151,7 @@ void insert(struct BST* BST, int key)
 	return;
 }
 
-/*_max is used to get_height*/
+/*_max is used to get_height. Helper function.*/
 int _max(int x, int y)
 {
     if(x<y)
@@ -159,16 +159,17 @@ int _max(int x, int y)
     else
         return x;
 }
-int get_height(struct Node* root){
+int _recursiveHeight(struct Node* root){
+    /*Recursively gets the height*/
     int left_height = 0;
     int right_height = 0;
     //recursive call keep increment the left and right heigh of tree and sub trees
     if(root->left != NULL){
-        left_height = 1 + get_height(root->left);
+        left_height = 1 + _recursiveHeight(root->left);
     }
 
      if(root->right != NULL){
-        right_height = 1 + get_height(root->right);
+        right_height = 1 + _recursiveHeight(root->right);
     }
  	//compare height of each possible path
     return _max(left_height, right_height);
@@ -182,8 +183,8 @@ int height(struct BST* bst){
         return -1;
     }
     else {
-        int max_height = get_height(curr);
-        // Should height be returning something? TODO
+        // Call _recursiveHeight to return the max_height.
+        int max_height = _recursiveHeight(curr);
         return max_height;
     }
 }
