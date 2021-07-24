@@ -17,6 +17,7 @@ struct BST* createBST(){
 // Morris traversal of the tree.
 void inorderTraversal(struct BST* BST)
 {
+    printf("In-order Traversal\n");
 	struct Node* current;
 	struct Node* parent;
 
@@ -80,6 +81,9 @@ void inorderTraversal(struct BST* BST)
 				}
 		}
 	}
+	// Print new line to give space between the in-order traversal
+	// and everything else.
+	printf("\n");
 }
 
 
@@ -155,7 +159,6 @@ int _max(int x, int y)
     else
         return x;
 }
-/*_max is used to get_height*/
 int get_height(struct Node* root){
     int left_height = 0;
     int right_height = 0;
@@ -173,14 +176,15 @@ int get_height(struct Node* root){
 }
 
 int height(struct BST* bst){
-    //printf("height function called\n"); // delete this
     struct Node* curr = bst->root;
-    if (curr == NULL){//if no binary tree exist
+    //if no binary tree exist, return NULL.
+    if (curr == NULL){
         return -1;
     }
     else {
         int max_height = get_height(curr);
     }
+    // Should height be returning something? TODO
 }
 
 int depth(struct BST* base, int key) {
@@ -228,6 +232,9 @@ void freePostorder(struct Node* node)
     // then recur on right subtree
     freePostorder(node->right);
 
+    // Print that the node is freed:
+    printf("Free: %4d\n", node->key);
+
     // Free the node
     free(node);
 
@@ -242,6 +249,8 @@ void deleteBST(struct BST* tree){
     struct Node* rootNode = tree->root;
 	// Put the current in the function printoPostorder()
 	freePostorder(rootNode);
+
+	printf("Free the BST\n");
 
     // free the tree
     free(tree);
