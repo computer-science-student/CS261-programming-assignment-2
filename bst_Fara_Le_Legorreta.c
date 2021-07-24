@@ -27,25 +27,25 @@ void inorderTraversal(struct BST* BST)
 		return;
 
 	while (current != NULL) {
-		// current->left == NULL indicates that 
-		// the algorithm has reached the next 
+		// current->left == NULL indicates that
+		// the algorithm has reached the next
 		// smallest number. So the algorithm
 		// prints current and then continues
-		// to the right, if possible. 
+		// to the right, if possible.
 		if (current->left == NULL) {
 			printf("%d ", current->key);
 			current = current->right;
 		}
 
 		// else if current->left != NULL, then there
-		// is a left branch to traverse. Having 
+		// is a left branch to traverse. Having
 		// traversed that branch, the algorithm needs
 		// to return to current and traverse its
 		// right branch. To facilitate this return,
-		// the algorithm seeks the immediate 
+		// the algorithm seeks the immediate
 		// predecessor of current. This immediate
 		// predecessor will ultimately be the
-		// last node of the left branch that is 
+		// last node of the left branch that is
 		// traversed. So, a temporary link is formed
 		// between this immediate predecessor and
 		// current. In this way, the algorithm
@@ -58,15 +58,15 @@ void inorderTraversal(struct BST* BST)
 			while (parent->right != NULL
 			       && parent->right != current)
 				parent = parent->right;
-				
+
 				// The algorithm has found the immediate
 				// predecessor and creates a temporary
 				// link back to current.
 				if (parent->right == NULL) {
-					parent->right = current; 
+					parent->right = current;
 					current = current->left;
 				}
-				
+
 				// If parent->right == current, then the
 				// algorithm has traversed the entire
 				// left branch and has returned to the root
@@ -148,6 +148,14 @@ void insert(struct BST* BST, int key)
 }
 
 /*_max is used to get_height*/
+int _max(int x, int y)
+{
+    if(x<y)
+        return y;
+    else
+        return x;
+}
+/*_max is used to get_height*/
 int get_height(struct Node* root){
 
     int left_height = 0;
@@ -168,13 +176,13 @@ int get_height(struct Node* root){
 int height(struct BST* bst){
     printf("height function called\n");
     struct Node* curr = bst->root;
-    if (curr == NULL){//if no binary tree exist
+    if (curr == NULL){
         return -1;
     }
     else {
         int max_height = get_height(curr);
     }
-	
+
 int depth(struct BST* base, int key) {
     struct Node* curr = base->root; // current node
     int count = 0; // initialize the counter variable
