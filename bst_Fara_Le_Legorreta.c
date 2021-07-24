@@ -159,6 +159,7 @@ int _max(int x, int y)
     else
         return x;
 }
+
 int _recursiveHeight(struct Node* root){
     /*Recursively gets the height*/
     int left_height = 0;
