@@ -214,13 +214,7 @@ int depth(struct BST* base, int key) {
 }
 
 /*
-  DISCLAIMER: I took a standard C program of a post order traversal and replaced the
-  print function with a function that frees the node. This works because, by doing a post order
-  traversal, I always free a leaf node (case 1 delete).
-  This standard C program of a post order traversal was taken from here:
-  https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
-
-  Given a binary tree, free its nodes according to the "bottom-up" post-order traversal.
+  Given a binary tree, free its nodes according to post-order traversal.
   */
 void freePostorder(struct Node* node)
 {
